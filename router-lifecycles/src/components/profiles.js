@@ -1,12 +1,24 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 const Profiles = (props)=> {
-    console.log(props);
+    
+    const redir = () => {
+        console.log(props)
+        return(
+            props.history.push('/')
+        )
+    }
+
+
     return(
+        <div>
         <Link to={{
             pathname: `${props.match.url}/posts`
         }}>take me to /profiles/posts</Link>
+
+        {redir()}
+        </div>
     )
 }
 

@@ -10,6 +10,7 @@ import Posts from './components/posts';
 import Profiles from './components/profiles';
 import Home from './components/home';
 import PostItem from './components/post_item';
+import Error404 from './components/404';
 
 // myawesomeapp.com/posts
 // myawesomeapp.com/profile/posts
@@ -29,7 +30,8 @@ const App = ()=>{
                     <Route path="/posts" component={Posts}/>
                     <Route path="/posts/:id/:username" component={PostItem}/>
                     <Route path="/profiles" component={Profiles}/>
-                    <Route path="/" component={Home}/>
+                    <Route path="/" exact component={Home}/>
+                    <Route component={Error404}/>
                 </Switch>
             </div>
         </BrowserRouter>
