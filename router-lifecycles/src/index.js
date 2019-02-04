@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 
 //alternative to Browser Router are HashRouter and MemoryRouter
 //link can be replaced by NavLink which has option to add activeStyle and activeClassName as a property of link
@@ -25,11 +25,12 @@ const App = ()=>{
                     <Link to="/profiles">Profiles</Link><br/>
                     <hr/>
                 </header>
-                <Route path="/" exact component={Home}/>
-                <Route path="/posts" exact component={Posts}/>
-                <Route path="/posts/:id/:username" component={PostItem}/>
-                <Route path="/profiles" component={Profiles}/>
-                <Route path="/home" component={Home}/>
+                <Switch>
+                    <Route path="/posts" component={Posts}/>
+                    <Route path="/posts/:id/:username" component={PostItem}/>
+                    <Route path="/profiles" component={Profiles}/>
+                    <Route path="/" component={Home}/>
+                </Switch>
             </div>
         </BrowserRouter>
     )   
